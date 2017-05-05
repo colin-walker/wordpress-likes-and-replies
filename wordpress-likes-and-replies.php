@@ -1,6 +1,6 @@
 <?php
 
-   if(!defined('ABSPATH')) exit; //Exit if accessed directly
+   if(!defined('ABSPATH')) exit; //Don't run if accessed directly
 
 	/*
 
@@ -8,7 +8,7 @@
 
    	Description: Add IndieWeb likes and replies to posts with microformat2 markup using the value from custom fields
 
-   	Version: 0.1
+   	Version: 0.2
 
    	Author: Colin Walker
 
