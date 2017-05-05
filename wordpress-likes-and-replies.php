@@ -12,13 +12,16 @@
 
 	*/
 
-	function mentiontypes ( $content ) {
+	if ( ! defined( 'ABSPATH' ) ) exit;
+    // Exit if accessed directly
+    
+   function mentiontypes ( $content ) {
 
   		$id = get_the_ID();
   		$types = array ( 'Reply', 'Liked' );
 
   		foreach ( $types as $type) {
-    		$mentionurl = (get_post_meta($id, $type, true));
+    		$mentionurl = esc_url(get_post_meta($id, $type, true));
 
     		if ( $mentionurl !="" ) {
      			$url = wp_remote_get($mentionurl);
