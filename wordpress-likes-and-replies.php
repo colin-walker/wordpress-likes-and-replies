@@ -1,5 +1,7 @@
 <?php
 
+   if(!defined('ABSPATH')) exit; //Exit if accessed directly
+
 	/*
 
    	Plugin Name: Likes and replies from custom fields
@@ -11,9 +13,6 @@
    	Author: Colin Walker
 
 	*/
-
-	if ( ! defined( 'ABSPATH' ) ) exit;
-    // Exit if accessed directly
     
    function mentiontypes ( $content ) {
 
