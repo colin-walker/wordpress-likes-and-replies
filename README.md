@@ -4,6 +4,6 @@ Add IndieWeb likes and replies to posts with microformat2 markup using the value
 
 Usage: Add the required page URL to the 'Liked' or 'Reply' field in the meta box to have it automatically added to the post body when saved. Microformat2 markup ensures the relevant webmention is sent on posting.
 
-Now works correctly when pists are made using the REST API (e.g. from Workflow)
+Now works correctly when posts are made using the REST API (e.g. from Workflow)
 
-   	
+Version 0.5.0
