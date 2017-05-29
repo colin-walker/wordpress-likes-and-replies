@@ -2,34 +2,47 @@
 
 	if(!defined('ABSPATH')) exit; //Don't run if accessed directly
 
-	/*
-
-   	Plugin Name: Likes and replies from custom fields
-
-   	Description: Add IndieWeb likes and replies to posts with microformat2 markup using the value from custom fields
-
-   	Version: 0.5.0
-
-   	Author: Colin Walker
-
+	/**
+	 * Likes and Replies
+	 *
+	 * @package Likes and Replies
+	 *
+   	 * Plugin Name: Likes and replies from custom fields
+   	 *
+   	 * Description: Add IndieWeb likes and replies to posts with microformat2 markup using the value from custom fields
+   	 *
+   	 * Version: 0.5.5
+   	 *
+   	 * Author: Colin Walker
 	*/
 
 
    	// include files
 
-   	include_once('includes/landr_settings.php');
 
-   	include_once('includes/content_filter.php');
+	add_action( 'plugins_loaded', 'landr_plugin' );
 
 
-	register_activation_hook( __FILE__, 'landr_activate' );
-	register_deactivation_hook(__FILE__, 'landr_deactivate');
+	function landr_plugin() {
+		require_once('includes/landr_settings.php');
+		require_once('includes/landr_filter.php');
+
+		register_activation_hook( __FILE__, 'landr_activate' );
+		register_deactivation_hook(__FILE__, 'landr_deactivate');
+	}
 
 	
-   	// add meta box
+   	//add meta box
 
 	function landr_custom_meta() {
-		add_meta_box( 'landr_meta', 'Like and Replies', 'landr_meta_callback', 'post', 'normal', 'high' );
+		add_meta_box(
+			'landr_meta',
+			'Like and Replies',
+			'landr_meta_callback',
+			'post', 
+			'normal',
+			'high'
+		);
 	}
 
 	add_action( 'add_meta_boxes', 'landr_custom_meta' );
@@ -106,6 +119,5 @@
 		add_action( 'save_post', 'save_landr_urls' );
 		return $content;
 	}
-
 
 ?>
