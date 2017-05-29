@@ -34,7 +34,7 @@
 
 	// add actions	
 
-	add_action('admin_menu', 'landr_menu');
+	add_action( 'admin_menu', 'landr_menu' );
 	add_action( 'add_meta_boxes', 'landr_custom_meta' );
 	add_action( 'save_post', 'landr_save_urls' );
 	add_filter( 'wp_insert_post_data', 'filter_post_data', '99', 2 );
