@@ -25,8 +25,6 @@
 	
 	// register settings
 
-	add_action( 'admin_init', 'landr_settings' );
-
 	function landr_settings() {
 		register_setting( 'landr-settings-group', 'like_text' );
 		register_setting( 'landr-settings-group', 'reply_text' );
