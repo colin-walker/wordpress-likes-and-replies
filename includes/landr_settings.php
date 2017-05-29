@@ -1,7 +1,16 @@
 <?php
 
+if(!defined('ABSPATH')) exit; //Don't run if accessed directly
 
-// activate, deactivate and set options defaults
+
+/**
+ *
+ * @package Likes and Replies
+ *
+ * activate, deactivate and set options defaults
+ *
+*/
+
 
 function landr_activate() {
 	add_option('like_text', 'Liked:');
@@ -32,17 +41,14 @@ function landr_menu() {
 	add_menu_page('Likes and Replies Settings', 'Likes and Replies', 'administrator', 'landr-settings', 'landr_settings_page', 'dashicons-admin-generic', 3 );
 }
 
+
 function landr_settings_page() { ?>
-
 	<div class="wrap">
-
 	<h2>Likes and Replies</h2>
 	<p>The values below will be added to the post prior to the link, for example:</p>
 	<p>In reply to: *linked page here*</p>
-
 	<form method="post" action="options.php">
 	    	<?php settings_fields( 'landr-settings-group' ); ?>
-
     		<p>Like text:</p>
     		<input type="text" name="like_text" value="<?php echo esc_attr( get_option('like_text') ); ?>" />
     		<p>Reply text:</p>
@@ -50,5 +56,4 @@ function landr_settings_page() { ?>
     		<br />
     		<?php submit_button(); ?>
     	</form>
-
 <?php } ?>
