@@ -6,6 +6,6 @@ Usage: Add the required page URL to the 'Liked' or 'Reply' field in the meta box
 
 Now works correctly when posts are made using the REST API (e.g. from Workflow)
 
-Version 0.9.0
+Version 1.0
 
-(This can be considered a release candidate)
+(This can be considered a release)
