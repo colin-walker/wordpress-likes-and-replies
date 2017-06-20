@@ -54,21 +54,21 @@
 		$content = $content_post->post_content;
 
 		if ( $liked_url !="" ) {
-			$url = wp_remote_get($liked_url);
-      			$str = wp_remote_retrieve_body( $url );
-      			$str = trim(preg_replace('/\s+/', ' ', $str));
-      			preg_match("/\<title\>(.*)\<\/title\>/i",$str,$liked_title);
-			$likedstr = '<p><em>' . esc_attr( get_option('like_text') ) . ' <a class="u-like-of" href="' . $liked_url . '">' . $liked_title[1] . '</a>...</em></p>';
+			$dom = new DOMDocument(); 
+			$dom->loadHTMLFile($liked-url); 
+			$liked_title = $dom->getElementsByTagName('title')->item('0')->nodeValue;
+                
+			$likedstr = '<p><em>' . esc_attr( get_option('like_text') ) . ' <a class="u-like-of" href="' . $liked_url . '">' . $liked_title . '</a>...</em></p>';
 			$content = $likedstr . $content;
 			delete_post_meta( $post_id, 'Liked', $liked_url );
 		}
 
 		if ( $reply_url !="" ) {
-			$url = wp_remote_get($reply_url);
-      			$str = wp_remote_retrieve_body( $url );
-      			$str = trim(preg_replace('/\s+/', ' ', $str));
-      			preg_match("/\<title\>(.*)\<\/title\>/i",$str,$reply_title);
-			$replystr = '<p><em>' . esc_attr( get_option('reply_text') ) . ' <a class="u-in-reply-to" href="' . $reply_url . '">' . $reply_title[1] . '</a>...</em></p>';
+			$dom = new DOMDocument(); 
+			$dom->loadHTMLFile($reply_url); 
+			$reply_title = $dom->getElementsByTagName('title')->item('0')->nodeValue;
+                
+			$replystr = '<p><em>' . esc_attr( get_option('reply_text') ) . ' <a class="u-in-reply-to" href="' . $reply_url . '">' . $reply_title . '</a>...</em></p>';
 			$content = $replystr . $content;
 			delete_post_meta( $post_id, 'Reply', $reply_url );
 		}	

@@ -21,11 +21,10 @@
 		foreach ( $types as $type ) {
 			$meta = get_post_meta( $post_id, $type, true );
 			if ( $meta != '' ) {
-				$meta_url = esc_url( $meta );			
-				$url = wp_remote_get($meta_url);
-	      			$str = wp_remote_retrieve_body( $url );
-	      			$str = trim(preg_replace('/\s+/', ' ', $str));
-	      			preg_match("/\<title\>(.*)\<\/title\>/i",$str,$pagetitle);
+				$meta_url = esc_url( $meta );
+   				$doc = new DOMDocument(); 
+				$doc->loadHTMLFile($meta_url); 
+				$pagetitle = $doc->getElementsByTagName('title')->item('0')->nodeValue;	
 
 				if ( $type == 'Liked' ) {
 					$mentionstr = '<p><em>' . esc_attr( get_option('like_text') ) . ' <a class="u-like-of" href="' . $meta_url . '">' . $pagetitle[1] . '</a>...</em></p>';
