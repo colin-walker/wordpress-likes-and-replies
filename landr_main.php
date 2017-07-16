@@ -12,7 +12,7 @@
    	 *
    	 * Description: Add IndieWeb likes and replies to posts with microformat2 markup using the value from custom fields
    	 *
-   	 * Version: 0.5.1
+   	 * Version: 1.0
    	 *
    	 * Author: Colin Walker
 	*/
