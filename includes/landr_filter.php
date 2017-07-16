@@ -27,9 +27,9 @@
 				$pagetitle = $doc->getElementsByTagName('title')->item('0')->nodeValue;	
 
 				if ( $type == 'Liked' ) {
-					$mentionstr = '<p><em>' . esc_attr( get_option('like_text') ) . ' <a class="u-like-of" href="' . $meta_url . '">' . $pagetitle[1] . '</a>...</em></p>';
+					$mentionstr = '<p><em>' . esc_attr( get_option('like_text') ) . ' <a class="u-like-of" href="' . $meta_url . '">' . $pagetitle . '</a>...</em></p>';
 				} else {
-					$mentionstr = '<p><em>' . esc_attr( get_option('reply_text') ) . ' <a class="u-in-reply-to" href="' . $meta_url . '">' . $pagetitle[1] . '</a>...</em></p>';
+					$mentionstr = '<p><em>' . esc_attr( get_option('reply_text') ) . ' <a class="u-in-reply-to" href="' . $meta_url . '">' . $pagetitle . '</a>...</em></p>';
 				}
 
 				$content['post_content'] = $mentionstr . $content['post_content'];
