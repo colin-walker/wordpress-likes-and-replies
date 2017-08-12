@@ -55,7 +55,9 @@
 
 		if ( $liked_url !="" ) {
 			$dom = new DOMDocument(); 
+          libxml_use_internal_errors(true);
 			$dom->loadHTMLFile($liked_url); 
+          libxml_clear_errors();
 			$liked_title = $dom->getElementsByTagName('title')->item('0')->nodeValue;
                 
 			$likedstr = '<p><em>' . esc_attr( get_option('like_text') ) . ' <a class="u-like-of" href="' . $liked_url . '">' . $liked_title . '</a>...</em></p>';
@@ -65,7 +67,9 @@
 
 		if ( $reply_url !="" ) {
 			$dom = new DOMDocument(); 
+          libxml_use_internal_errors(true);
 			$dom->loadHTMLFile($reply_url); 
+          libxml_clear_errors();
 			$reply_title = $dom->getElementsByTagName('title')->item('0')->nodeValue;
                 
 			$replystr = '<p><em>' . esc_attr( get_option('reply_text') ) . ' <a class="u-in-reply-to" href="' . $reply_url . '">' . $reply_title . '</a>...</em></p>';

@@ -23,7 +23,9 @@
 			if ( $meta != '' ) {
 				$meta_url = esc_url( $meta );
    				$doc = new DOMDocument(); 
+              libxml_use_internal_errors(true);
 				$doc->loadHTMLFile($meta_url); 
+              libxml_clear_errors();
 				$pagetitle = $doc->getElementsByTagName('title')->item('0')->nodeValue;	
 
 				if ( $type == 'Liked' ) {
