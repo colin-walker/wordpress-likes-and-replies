@@ -6,6 +6,6 @@ Usage: Add the required page URL to the 'Liked' or 'Reply' field in the meta box
 
 Now works correctly when posts are made using the REST API (e.g. from Workflow)
 
-Version 1.0
+Version 1.01
 
-(This can be considered a release)
+(Requires the Webmention plugin by Matthias Pfefferle - https://wordpress.org/plugins/webmention/)
