@@ -8,4 +8,4 @@ Now works correctly when posts are made using the REST API (e.g. from Workflow)
 
 Version 1.01
 
-(Requires the Webmention plugin by Matthias Pfefferle - https://wordpress.org/plugins/webmention/)
+(Requires a way to send webmentions like the Webmention plugin by Matthias Pfefferle - https://wordpress.org/plugins/webmention/)
